@@ -32,7 +32,7 @@ public class StatisticControllerTest {
     public void testGetStatus() throws Exception {
         Mockito.when(statisticService.getNginxStatus()).thenReturn(nginxStatus);
 
-        final String actual = mvc.perform(get("/api/stat")
+        final String actual = mvc.perform(get("/nginx/statistics")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andReturn().getResponse().getContentAsString();
@@ -50,7 +50,7 @@ public class StatisticControllerTest {
     public void testContentType() throws Exception {
         Mockito.when(statisticService.getNginxStatus()).thenReturn(nginxStatus);
 
-        final String actual = mvc.perform(get("/api/stat")
+        final String actual = mvc.perform(get("/nginx/statistics")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andReturn().getResponse().getContentType();

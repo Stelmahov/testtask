@@ -13,7 +13,7 @@ services:
       - ./nginx.conf:/etc/nginx/nginx.conf
 
   app:
-    image: testtask:1.0-SNAPSHOT
+    image: registry.gitlab.com/stelmakhov/testtask:master
     ports:
       - 8080:8080
     depends_on:

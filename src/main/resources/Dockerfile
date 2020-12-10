@@ -1,4 +1,6 @@
-FROM openjdk:11-jre
-COPY testtask-1.0.jar /app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+FROM openjdk:11-jdk
+VOLUME /tmp
+COPY build/libs/*.jar app.jar
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
+
 
